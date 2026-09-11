@@ -1,5 +1,7 @@
 import Hajomodell from "../MODELL/HajoModell.js"
 import Hajok from "../VIEW/Hajok.js"
+import HajoTeljes from "../VIEW/HajoTeljes.js";
+import Hajoteljes from "../VIEW/HajoTeljes.js";
 
 export default class HajoController{
     /* feldata a modell és a view közötti kapcsolattrtás
@@ -14,8 +16,8 @@ export default class HajoController{
         this.#hajokView=new Hajok(this.#hajoModell.getLista(),this.ARTICLEELEM);
         this.rendezGomb = document.querySelector("#rendeznev");
         this.szuresGomb = document.getElementById("szuresfilm");
-        //console.log(this.#hajoModell.rendezLista())
-        //console.log(this.#hajoModell.szurtLista())
+        console.log(this.#hajoModell.rendezLista())
+        console.log(this.#hajoModell.szurtLista())
         this.szuresRendezesesemenyKezeleo();
     }
 
@@ -27,6 +29,13 @@ export default class HajoController{
         this.szuresGomb.addEventListener("click", () =>{
             this.ARTICLEELEM.innerHTML = "";
             new Hajok(this.#hajoModell.szurtLista(), this.ARTICLEELEM);
+        })
+        window.addEventListener("kivalaszt", (event) => {
+            console.log(event.detail)
+            const adat = this.#hajoModell.getAdat(event.detail)
+            console.log(adat)
+            this.ARTICLEELEM.innerHTML = ""
+            new HajoTeljes(adat, this.ARTICLEELEM)
         })
     }
 }

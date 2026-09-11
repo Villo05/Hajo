@@ -32,4 +32,10 @@ export default class Hajomodell{
 
         return SZURT;
     }
+
+    getAdat(id){
+        return this.#lista.find((a)=>{
+            return a.id==id
+        })
+    }
 }
