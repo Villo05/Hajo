@@ -14,11 +14,22 @@ export default class Hajomodell{
 
     rendezLista(){
         /* név szerint abc*/ 
-        
+        return this.#lista.sort((a,b)=>{
+            if (a.nev > b.nev) {
+                return 1;
+            }else{
+                return -1;
+            }
+            /* return a.nev > b.nev? -1:1 */
+        })
     }
 
     szurtLista(){
-        const SZURT=[];
+        /* melyik nem valós hajó */
+        const SZURT= this.#lista.filter((a)=>{
+            return a.valodi == false; 
+        })
+
         return SZURT;
     }
 }
