@@ -13,7 +13,8 @@ export default class Hajomodell{
     }
 
     rendezLista(){
-
+        /* név szerint abc*/ 
+        
     }
 
     szurtLista(){
