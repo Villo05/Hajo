@@ -15,13 +15,14 @@ export default class Hajomodell{
     rendezLista(){
         /* név szerint abc*/ 
         return this.#lista.sort((a,b)=>{
-            if (a.nev > b.nev) {
+            /*if (a.nev > b.nev) {
                 return 1;
             }else{
                 return -1;
-            }
-            /* return a.nev > b.nev? -1:1 */
+            }*/
+            return a.nev > b.nev? -1:1
         })
+        return this.#lista;
     }
 
     szurtLista(){
